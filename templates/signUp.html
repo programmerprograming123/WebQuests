@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: Inter, system-ui, sans-serif;
+            background: #0d0f14;
+            color: #e6e6eb;
+            line-height: 1.5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        
+        .auth-container {
+            width: 100%;
+            max-width: 380px;
+            background: #141722;
+            border-radius: 12px;
+            padding: 30px;
+            border: 1px solid #1f2333;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 14px;
+            border-radius: 8px;
+            border: 1px solid #23263a;
+            background: #0d0f14;
+            color: #fff;
+            font-size: 14px;
+        }
+        
+        input::placeholder {
+            color: #6f738a;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            background: #3b82f6;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background: #2563eb;
+        }
+        
+        .error {
+            background: #3a1d1d;
+            border: 1px solid #6b2d2d;
+            color: #ffb4b4;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 13px;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 14px;
+            font-size: 14px;
+        }
+        
+        .footer a {
+            color: #3b82f6;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="auth-container">
+        <h2>Create Account</h2>
+
+        {% if error %}
+        <div class="error">{{ error }}</div>
+        {% endif %}
+
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+
+        <div class="footer">
+            Already have an account? <a href="/login">Login</a>
+        </div>
+    </div>
+</body>
+
+</html>
