@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أذكار بعد الصلاة</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap');
+        body {
+            background-color: rgb(143, 199, 88);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #headerDiv {
+            background-color: rgb(34, 146, 67);
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 0 0 20px 20px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        #headerDiv h1 {
+            font-weight: 700;
+            font-size: 30px;
+            letter-spacing: 1px;
+        }
+        
+        #zikrContainer {
+            display: grid;
+            place-items: center;
+            gap: 20px;
+            margin: 30px;
+        }
+        
+        .zikrCard {
+            background-color: rgb(80, 114, 47);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 650px;
+            line-height: 2;
+            border: 1px solid #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+            text-align: justify;
+        }
+        
+        .zikrCard:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+        
+        .zikrCard p {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            background-color: rgb(34, 146, 67);
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+            font-size: 18px;
+        }
+        
+        #backBtn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            z-index: 100;
+        }
+        
+        #backBtn:hover {
+            background: linear-gradient(135deg, #388e3c, #81c784);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        #backBtn:active {
+            transform: scale(0.97);
+        }
+        
+        @media (max-width: 700px) {
+            .zikrCard {
+                padding: 15px;
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="headerDiv">
+        <button id="backBtn" onclick="history.back()">⬅ العودة</button>
+        <header>
+            <h1>🕌 أذكار بعد الصلاة 🕌</h1>
+        </header>
+    </div>
+
+    <div id="zikrContainer">
+
+        <!-- Istighfar -->
+        <div class="zikrCard">
+            <p><strong>الاستغفار:</strong></p>
+            <p>أستغفر الله، أستغفر الله، أستغفر الله</p>
+        </div>
+
+        <!-- Tasbeeh, Tahmeed, Takbeer -->
+        <div class="zikrCard">
+            <p><strong>التحميد والتسبيح والتكبير:</strong></p>
+            <p>
+                سبحان الله (33 مرة)
+                <br>الحمد لله (33 مرة)
+                <br>الله أكبر (33 مرة)
+                <br>ثم يقول: لا إله إلا الله وحده لا شريك له، له الملك وله الحمد وهو على كل شيء قدير
+            </p>
+        </div>
+
+        <!-- Du'a after salam -->
+        <div class="zikrCard">
+            <p><strong>دعاء بعد السلام:</strong></p>
+            <p>اللهم أنت السلام ومنك السلام، تباركت يا ذا الجلال والإكرام</p>
+        </div>
+
+        <!-- Ayat al-Kursi -->
+        <div class="zikrCard">
+            <p><strong>آية الكرسي:</strong></p>
+            <p>
+                اللّٰهُ لَآ إِلٰهَ إِلَّا هُوَ الْحَيُّ الْقَيُّومُ ۚ لَا تَأْخُذُهُ سِنَةٌ وَلَا نَوْمٌ ۚ لَّهُ مَا فِي السَّمٰوٰتِ وَمَا فِي الْأَرْضِ ۗ مَن ذَا الَّذِي يَشْفَعُ عِندَهُ إِلَّا بِإِذْنِهِ ۚ يَعْلَمُ مَا بَيْنَ أَيْدِيهِمْ وَمَا خَلْفَهُمْ ۖ وَلَا يُحِيطُونَ
+                بِشَيْءٍ مِّنْ عِلْمِهِ إِلَّا بِمَا شَاءَ ۚ وَسِعَ كُرْسِيُّهُ السَّمٰوٰتِ وَالْأَرْضَ ۖ وَلَا يَـُٔودُهُ حِفْظُهُمَا ۚ وَهُوَ الْعَلِيُّ الْعَظِيمُ
+            </p>
+        </div>
+
+        <!-- Al-Mu’awwidhat -->
+        <div class="zikrCard">
+            <p><strong>قراءة المعوذات:</strong></p>
+            <p>قُلْ هُوَ اللَّهُ أَحَدٌ – قُلْ أَعُوذُ بِرَبِّ الْفَلَقِ – قُلْ أَعُوذُ بِرَبِّ النَّاسِ</p>
+        </div>
+
+        <!-- General Du'a -->
+        <div class="zikrCard">
+            <p><strong>دعاء عام:</strong></p>
+            <p>اللهم لا مانع لما أعطيت، ولا معطي لما منعت، ولا ينفع ذا الجد منك الجد</p>
+        </div>
+
+        <!-- Extra Dhikr -->
+        <div class="zikrCard">
+            <p><strong>ذكر إضافي:</strong></p>
+            <p>اللهم أعني على ذكرك وشكرك وحسن عبادتك</p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>🕌 اجعل ختام صلاتك ذكراً لله تسعد به حياتك 🌿</p>
+    </footer>
+
+</body>
+
+</html>

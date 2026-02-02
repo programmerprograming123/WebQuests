@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أدعية السفر</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;600;700&display=swap');
+        body {
+            background-color: rgb(143, 199, 88);
+            font-family: 'Tajawal', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        
+        #headerDiv {
+            background-color: rgb(34, 146, 67);
+            color: white;
+            display: grid;
+            place-items: center;
+            border-radius: 0 0 20px 20px;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+        }
+        
+        #headerDiv h1 {
+            font-weight: 700;
+            font-size: 28px;
+        }
+        
+        #zikrContainer {
+            display: grid;
+            place-items: center;
+            gap: 20px;
+            margin: 30px;
+        }
+        
+        .zikrCard {
+            background-color: rgb(80, 114, 47);
+            color: white;
+            border-radius: 15px;
+            padding: 25px;
+            max-width: 750px;
+            line-height: 2.1;
+            border: 1px solid #000;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            text-align: justify;
+            transition: transform 0.2s ease, box-shadow 0.3s ease;
+        }
+        
+        #backBtn:hover {
+            background: linear-gradient(135deg, #388e3c, #81c784);
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        }
+        
+        #backBtn:active {
+            transform: scale(0.97);
+        }
+        
+        .zikrCard p {
+            margin: 10px 0;
+            font-size: 22px;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 15px;
+            color: white;
+            background-color: rgb(34, 146, 67);
+            border-radius: 20px 20px 0 0;
+            margin-top: 40px;
+            font-size: 18px;
+        }
+        
+        #backBtn {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: linear-gradient(135deg, #2e7d32, #66bb6a);
+            color: white;
+            border: none;
+            padding: 10px 22px;
+            font-size: 18px;
+            font-family: 'Tajawal', sans-serif;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+            z-index: 100;
+        }
+        
+        .zikrCard:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="headerDiv">
+        <button id="backBtn" onclick="history.back()">⬅ العودة</button>
+        <header>
+            <h1>✈️ أدعية السفر ✈️</h1>
+        </header>
+    </div>
+
+    <div id="zikrContainer">
+
+        <!-- Dua when starting travel / riding -->
+        <div class="zikrCard">
+            <p><strong>دعاء الركوب والسفر:</strong></p>
+            <p>
+                سُبْحَانَ الَّذِي سَخَّرَ لَنَا هَٰذَا وَمَا كُنَّا لَهُ مُقْرِنِينَ وَإِنَّا إِلَىٰ رَبِّنَا لَمُنقَلِبُونَ
+                <br><br> اللَّهُمَّ إِنَّا نَسْأَلُكَ فِي سَفَرِنَا هَٰذَا الْبِرَّ وَالتَّقْوَىٰ، وَمِنَ الْعَمَلِ مَا تَرْضَىٰ
+                <br><br> اللَّهُمَّ هَوِّنْ عَلَيْنَا سَفَرَنَا هَٰذَا، وَاطْوِ عَنَّا بُعْدَهُ اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ
+            </p>
+        </div>
+
+        <!-- Dua during travel -->
+        <div class="zikrCard">
+            <p><strong>دعاء عام أثناء السفر:</strong></p>
+            <p>
+                اللَّهُمَّ أَصْلِحْ لِي دِينِيَ الَّذِي هُوَ عِصْمَةُ أَمْرِي، وَأَصْلِحْ لِي دُنْيَايَ الَّتِي فِيهَا مَعَاشِي، وَأَصْلِحْ لِي آخِرَتِيَ الَّتِي فِيهَا مَعَادِي
+            </p>
+        </div>
+
+        <!-- Dua when stopping somewhere -->
+        <div class="zikrCard">
+            <p><strong>دعاء النزول في مكان:</strong></p>
+            <p>
+                أَعُوذُ بِكَلِمَاتِ اللَّهِ التَّامَّاتِ مِنْ شَرِّ مَا خَلَقَ
+            </p>
+        </div>
+
+        <!-- Dua entering a town/place -->
+        <div class="zikrCard">
+            <p><strong>دعاء دخول بلد أو مدينة:</strong></p>
+            <p>
+                اللَّهُمَّ رَبَّ السَّمَاوَاتِ السَّبْعِ وَمَا أَظْلَلْنَ، وَرَبَّ الْأَرَضِينَ السَّبْعِ وَمَا أَقْلَلْنَ، أَسْأَلُكَ خَيْرَ هَٰذِهِ الْقَرْيَةِ، وَخَيْرَ أَهْلِهَا، وَأَعُوذُ بِكَ مِنْ شَرِّهَا
+            </p>
+        </div>
+
+        <!-- Dua when returning -->
+        <div class="zikrCard">
+            <p><strong>دعاء الرجوع من السفر:</strong></p>
+            <p>
+                آيِبُونَ، تَائِبُونَ، عَابِدُونَ، لِرَبِّنَا حَامِدُونَ
+                <br><br> اللَّهُمَّ أَنْتَ الصَّاحِبُ فِي السَّفَرِ، وَالْخَلِيفَةُ فِي الْأَهْلِ
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>🌿 دعاء المسافر مستجاب بإذن الله ✈️</p>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>اذكار</title>
+    <style>
+        body {
+            background-color: rgb(143, 199, 88);
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 30px;
+            padding: 0;
+        }
+        
+        #headerDiv {
+            background-color: rgb(34, 146, 67);
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            margin: 10px;
+            border: 1px solid black;
+        }
+        
+        #headerDiv h1 {
+            color: white;
+        }
+        /* Grid Container */
+        
+        #photosAndButtons {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            justify-items: center;
+            gap: 20px;
+            padding: 20px;
+        }
+        /* General style for each card */
+        
+        #photosAndButtons>div {
+            background-color: rgb(80, 114, 47);
+            width: 220px;
+            height: 275px;
+            border-radius: 13px;
+            border: 1px solid black;
+            text-align: center;
+            overflow: hidden;
+            transition: transform 0.2s ease;
+        }
+        
+        #photosAndButtons>div:hover {
+            transform: scale(1.03);
+        }
+        
+        #photosAndButtons img {
+            width: 200px;
+            height: 150px;
+            margin-top: 10px;
+            border-radius: 10px;
+        }
+        
+        #photosAndButtons button {
+            background-color: rgb(97, 138, 57);
+            border: none;
+            border-radius: 12px;
+            width: 90%;
+            height: 60px;
+            margin-top: 10px;
+            font-size: larger;
+            cursor: pointer;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        
+        #photosAndButtons button:hover {
+            background-color: rgb(110, 158, 65);
+        }
+        
+        a {
+            text-decoration: none;
+        }
+        
+        #times {
+            background-color: rgb(97, 138, 57);
+            border: none;
+            border-radius: 12px;
+            color: white;
+            transition: background-color 0.3s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="headerDiv">
+        <header>
+            <h1 id="HeadH1">اذكار</h1>
+        </header>
+    </div>
+
+    <div id="photosAndButtons">
+        <div>
+            <img src="pics/R.jpeg">
+            <a href="allZikrs/zikr1.html"><button>أذكار الصباح</button></a>
+        </div>
+
+        <div>
+            <img src="pics/OIP.webp">
+            <a href="allZikrs/zikr2.html"><button>أذكار قبل النوم</button></a>
+        </div>
+
+        <div>
+            <img src="pics/7bedbda64a97b250938f76a3e3a62b4c.jpg">
+            <a href="allZikrs/zikr3.html"><button>أذكار المساء</button></a>
+        </div>
+
+        <div>
+            <img src="pics/OIP (1).webp">
+            <a href="allZikrs/zikr4.html"><button>أذكار بعد الصلاة</button></a>
+        </div>
+
+        <div>
+            <img src="pics/95-3.1800x1800.png">
+            <a href="allZikrs/zikr5.html"><button>أذكار دخول وخروج المنزل</button></a>
+        </div>
+
+        <div>
+            <img src="pics/OIP (2).webp">
+            <a href="allZikrs/zikr6.html"><button>أدعية السفر</button></a>
+        </div>
+    </div>
+
+    <hr>
+
+    <!-- Prayer Times -->
+
+    <div id="prayerTimes" style="max-width:400px;margin:20px auto;padding:20px;background: rgb(80, 114, 47);border-radius:12px;color:white;font-family:Verdana, Geneva, Tahoma,sans-serif;text-align:center;">
+        <h2 style="margin-bottom:15px;font-size:1.5em;">مواقيت الصلاة</h2>
+        <div id="times">
+            <ul style="list-style:none;padding:0;margin:0;font-size:1.2em;line-height:2;">
+                <li>الفجر: <span id="fajr">...</span></li>
+                <li>الظهر: <span id="dhuhr">...</span></li>
+                <li>العصر: <span id="asr">...</span></li>
+                <li>المغرب: <span id="maghrib">...</span></li>
+                <li>العشاء: <span id="isha">...</span></li>
+            </ul>
+        </div>
+
+
+    </div>
+    <script>
+        function to12Hour(time24) {
+            const [h, m] = time24.split(":").map(Number);
+            const ampm = h >= 12 ? "PM" : "AM";
+            const hour12 = h % 12 || 12;
+            return `${hour12}:${m.toString().padStart(2,"0")} ${ampm}`;
+        }
+
+        // Display timings in HTML
+        function showTimes(t) {
+            document.getElementById("fajr").textContent = to12Hour(t.Fajr);
+            document.getElementById("dhuhr").textContent = to12Hour(t.Dhuhr);
+            document.getElementById("asr").textContent = to12Hour(t.Asr);
+            document.getElementById("maghrib").textContent = to12Hour(t.Maghrib);
+            document.getElementById("isha").textContent = to12Hour(t.Isha);
+        }
+
+        // Fetch prayer times using coordinates
+        async function fetchByCoords(lat, lon) {
+            const res = await fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=3&latitudeAdjustmentMethod=3`);
+            const data = await res.json();
+            return data.data.timings;
+        }
+
+        // Fetch prayer times using city (fallback)
+        async function fetchByCity() {
+            const res = await fetch("https://api.aladhan.com/v1/timingsByCity?city=London&country=UK&method=3");
+            const data = await res.json();
+            return data.data.timings;
+        }
+
+        // Main function: get location + fetch
+        function getPrayerTimes() {
+            if (!navigator.geolocation) {
+                fetchByCity().then(showTimes);
+                return;
+            }
+
+            navigator.geolocation.getCurrentPosition(
+                pos => {
+                    fetchByCoords(pos.coords.latitude, pos.coords.longitude)
+                        .then(showTimes)
+                        .catch(() => fetchByCity().then(showTimes));
+                },
+                () => {
+                    // Location denied
+                    fetchByCity().then(showTimes);
+                }
+            );
+        }
+
+        // Run on page load
+        getPrayerTimes();
+    </script>
+
+
+
+
+
+</body>
+
+
+</html>
